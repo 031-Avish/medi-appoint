@@ -9,7 +9,7 @@ import fetchData from "../helper/apiCall";
 import "../styles/user.css";
 
 // set axios default base url
-// axios.defaults.baseURL = process.env.REACT_APP_SERVER_DOMAIN;
+axios.defaults.baseURL = process.env.REACT_APP_SERVER_DOMAIN;
 
 const AdminApplications = () => {
 

@@ -9,7 +9,7 @@ import fetchData from "../helper/apiCall";
 import "../styles/user.css";
 
 // set base url
-// axios.defaults.baseURL = process.env.REACT_APP_SERVER_DOMAIN;
+axios.defaults.baseURL = process.env.REACT_APP_SERVER_DOMAIN;
 
 // get all the appoinment detail 
 const AdminAppointments = () => {

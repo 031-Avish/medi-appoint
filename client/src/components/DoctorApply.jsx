@@ -3,7 +3,7 @@ import toast from "react-hot-toast";
 import "../styles/doctorapply.css";
 import axios from "axios";
 
-// axios.defaults.baseURL = process.env.REACT_APP_SERVER_DOMAIN;
+axios.defaults.baseURL = process.env.REACT_APP_SERVER_DOMAIN;
 // IT is of no user now make different 
 function DoctorApply() {
   const [formDetails, setFormDetails] = useState({

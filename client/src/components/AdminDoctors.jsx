@@ -8,7 +8,7 @@ import Empty from "./Empty";
 import fetchData from "../helper/apiCall";
 import "../styles/user.css";
 
-axios.defaults.baseURL = process.env.REACT_APP_SERVER_DOMAIN;
+// axios.defaults.baseURL = process.env.REACT_APP_SERVER_DOMAIN;
 
 // give list of all doctors to admin 
 const AdminDoctors = () => {
@@ -19,7 +19,7 @@ const AdminDoctors = () => {
   const getAllDoctors = async (e) => {
     try {
       dispatch(setLoading(true));
-      const temp = await fetchData(`/doctor/getalldoctors`);
+      const temp = await fetchData(`/api/doctor/getalldoctors`);
       setDoctors(temp);
       dispatch(setLoading(false));
     } catch (error) {}
@@ -33,7 +33,7 @@ const AdminDoctors = () => {
       if (confirm) {
         await toast.promise(
           axios.put(
-            "/doctor/deletedoctor",
+            "/api/doctor/deletedoctor",
             { userId },
             {
               headers: {

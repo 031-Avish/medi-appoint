@@ -8,7 +8,7 @@ import { setUserInfo } from "../redux/reducers/rootSlice";
 import jwt_decode from "jwt-decode";
 import fetchData from "../helper/apiCall";
 
-axios.defaults.baseURL = process.env.REACT_APP_SERVER_DOMAIN;
+// axios.defaults.baseURL = process.env.REACT_APP_SERVER_DOMAIN;
 
 function Login() {
   const dispatch = useDispatch();
@@ -37,7 +37,7 @@ function Login() {
       }
 
       const { data } = await toast.promise(
-        axios.post("/user/login", {
+        axios.post("/api/user/login", {
           email,
           password,
         }),
@@ -59,7 +59,7 @@ function Login() {
 
   const getUser = async (id) => {
     try {
-      const temp = await fetchData(`/user/getuser/${id}`);
+      const temp = await fetchData(`/api/user/getuser/${id}`);
       dispatch(setUserInfo(temp));
       return navigate("/");
     } catch (error) {

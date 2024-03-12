@@ -21,7 +21,7 @@ const Appointments = () => {
     try {
       dispatch(setLoading(true));
       const temp = await fetchData(
-        `/appointment/getallappointments?search=${userId}`
+        `/api/appointment/getallappointments?search=${userId}`
       );
       setAppointments(temp);
       dispatch(setLoading(false));
@@ -37,7 +37,7 @@ const Appointments = () => {
     try {
       await toast.promise(
         axios.put(
-          "/appointment/completed",
+          "/api/appointment/completed",
           {
             appointid: ele?._id,
             doctorId: ele?.doctorId?._id,
@@ -66,7 +66,7 @@ const Appointments = () => {
     try {
       await toast.promise(
         axios.put(
-          "/appointment/reject",
+          "/api/appointment/reject",
           {
             appointid: ele?._id,
             doctorId: ele?.doctorId?._id,

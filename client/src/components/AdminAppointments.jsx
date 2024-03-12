@@ -9,7 +9,7 @@ import fetchData from "../helper/apiCall";
 import "../styles/user.css";
 
 // set base url
-axios.defaults.baseURL = process.env.REACT_APP_SERVER_DOMAIN;
+// axios.defaults.baseURL = process.env.REACT_APP_SERVER_DOMAIN;
 
 // get all the appoinment detail 
 const AdminAppointments = () => {
@@ -20,7 +20,7 @@ const AdminAppointments = () => {
   const getAllAppoint = async (e) => {
     try {
       dispatch(setLoading(true));
-      const temp = await fetchData(`/appointment/getallappointments`);
+      const temp = await fetchData(`/api/appointment/getallappointments`);
       setAppointments(temp);
       dispatch(setLoading(false));
     } catch (error) {}
@@ -33,7 +33,7 @@ const AdminAppointments = () => {
     try {
       await toast.promise(
         axios.put(
-          "/appointment/completed",
+          "/api/appointment/completed",
           {
             appointid: ele?._id,
             doctorId: ele?.doctorId._id,

@@ -9,7 +9,7 @@ import fetchData from "../helper/apiCall";
 import "../styles/user.css";
 
 // set axios default base url
-axios.defaults.baseURL = process.env.REACT_APP_SERVER_DOMAIN;
+// axios.defaults.baseURL = process.env.REACT_APP_SERVER_DOMAIN;
 
 const AdminApplications = () => {
 
@@ -21,7 +21,7 @@ const AdminApplications = () => {
   const getAllApp = async (e) => {
     try {
       dispatch(setLoading(true));
-      const temp = await fetchData(`/doctor/getnotdoctors`);
+      const temp = await fetchData(`/api/doctor/getnotdoctors`);
       setApplications(temp);
       dispatch(setLoading(false));
     } catch (error) {}
@@ -34,7 +34,7 @@ const AdminApplications = () => {
         // change in data base
         await toast.promise(
           axios.put(
-            "/doctor/acceptdoctor",
+            "/api/doctor/acceptdoctor",
             { id: userId },
             {
               headers: {
@@ -62,7 +62,7 @@ const AdminApplications = () => {
       if (confirm) {
         await toast.promise(
           axios.put(
-            "/doctor/rejectdoctor",
+            "/api/doctor/rejectdoctor",
             { id: userId },
             {
               headers: {
